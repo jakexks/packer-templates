@@ -9,7 +9,8 @@
       "private_networking": true,
       "region": "lon1",
       "size": "1gb",
-      "snapshot_name": "livewyermaster-{{timestamp}}"
+      "snapshot_name": "livewyermaster-{{timestamp}}",
+      "ssh_username": "core"
     }
   ],
   "provisioners": [
