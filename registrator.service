@@ -1,0 +1,17 @@
+[Unit]
+Description=Registrator
+After=After=docker.service
+Requires=docker.service
+ 
+[Service]
+Restart=on-failure
+TimeoutStartSec=0
+EnvironmentFile=/etc/environment
+ExecStartPre=-/usr/bin/docker kill registrator
+ExecStartPre=-/usr/bin/docker rm registrator
+ExecStartPre=/usr/bin/docker pull progrium/registrator
+ExecStart=/usr/bin/sh -c "/usr/bin/docker run --rm --name registrator -h $(/usr/bin/cat /etc/hostname) -v /var/run/docker.sock:/tmp/docker.sock progrium/registrator consul://$(/usr/bin/ip -o -4 addr list eth0 | grep global | awk \'{print $4}\' | cut -d/ -f1):8500"
+ExecStop=/usr/bin/docker stop registrator
+ 
+[Install]
+WantedBy=multi-user.target
