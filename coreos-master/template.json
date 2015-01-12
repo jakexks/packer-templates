@@ -27,6 +27,25 @@
       "type": "file",
       "source": "registrator.service",
       "destination": "/etc/systemd/system/registrator.service"
+    },
+    {
+      "type": "file",
+      "source": "zookeeper.service",
+      "destination": "/etc/systemd/system/zookeeper.service"
+    },
+    {
+      "type": "file",
+      "source": "mesos-master.service",
+      "destination": "/etc/systemd/system/mesos-master.service"
+    },
+    {
+      "type": "file",
+      "source": "marathon.service",
+      "destination": "/etc/systemd/system/marathon.service"
+    },
+    {
+      "type": "shell",
+      "inline": ["sudo chown root:root /etc/systemd/system/*.service", "sudo systemctl enable consul.service consul-discovery.service registrator.service", "sudo systemctl start consul.service consul-discovery.service registrator.service"]
     }
   ]
 }
