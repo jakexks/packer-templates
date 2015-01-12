@@ -1,0 +1,15 @@
+{
+  "description": "CoreOS, consul, registrator, zookeeper, mesos-master, marathon",
+  "builders": [
+    {
+      "name": "digitalocean-master",
+      "type": "digitalocean",
+      "droplet_name": "livewyermaster",
+      "image": "coreos-stable",
+      "private_networking": true,
+      "region": "lon1",
+      "size": "1gb",
+      "snapshot_name": "livewyermaster-{{timestamp}}"
+    }
+  ]
+}
