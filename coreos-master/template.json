@@ -17,36 +17,36 @@
     {
       "type": "file",
       "source": "consul-discovery.service",
-      "destination": "/etc/systemd/system/consul-discovery.service"
+      "destination": "/tmp/consul-discovery.service"
     },
     {
       "type": "file",
       "source": "consul.service",
-      "destination": "/etc/systemd/system/consul.service"
+      "destination": "/tmp/consul.service"
     },
     {
       "type": "file",
       "source": "registrator.service",
-      "destination": "/etc/systemd/system/registrator.service"
+      "destination": "/tmp/registrator.service"
     },
     {
       "type": "file",
       "source": "zookeeper.service",
-      "destination": "/etc/systemd/system/zookeeper.service"
+      "destination": "/tmp/zookeeper.service"
     },
     {
       "type": "file",
       "source": "mesos-master.service",
-      "destination": "/etc/systemd/system/mesos-master.service"
+      "destination": "/tmp/mesos-master.service"
     },
     {
       "type": "file",
       "source": "marathon.service",
-      "destination": "/etc/systemd/system/marathon.service"
+      "destination": "/tmp/marathon.service"
     },
     {
       "type": "shell",
-      "inline": ["sudo chown root:root /etc/systemd/system/*.service", "sudo systemctl enable consul.service consul-discovery.service registrator.service", "sudo systemctl start consul.service consul-discovery.service registrator.service"]
+      "inline": ["sudo cp /tmp/*.service /etc/systemd/system/", "sudo systemctl enable consul.service consul-discovery.service registrator.service", "sudo systemctl start consul.service consul-discovery.service registrator.service"]
     }
   ]
 }
