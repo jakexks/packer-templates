@@ -11,5 +11,22 @@
       "size": "1gb",
       "snapshot_name": "livewyermaster-{{timestamp}}"
     }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "consul-discovery.service",
+      "destination": "/etc/systemd/system/consul-discovery.service"
+    },
+    {
+      "type": "file",
+      "source": "consul.service",
+      "destination": "/etc/systemd/system/consul.service"
+    },
+    {
+      "type": "file",
+      "source": "registrator.service",
+      "destination": "/etc/systemd/system/registrator.service"
+    }
   ]
 }
